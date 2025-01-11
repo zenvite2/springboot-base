@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springboot-base
+  datasource:
+    url: jdbc:postgresql://192.168.1.58:5433/zenvite
+    username: root
+    password: 123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000 # 30 seconds
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000 # 5 minutes
+      max-lifetime: 1200000 # 20 minutes
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
